@@ -29,6 +29,6 @@ def pathFinder(graph, start, end):
         
     return False
 
-result = pathFinder(graph, 'a', 'a')
+result = pathFinder(graph, 'g', 'h')
 if(result == True): print("success")
 else: print("Failure")
