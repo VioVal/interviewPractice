@@ -3,10 +3,10 @@ class Queens:
         self.x = x
         self.y = y
 
-def eightQueens():
+def eightQueens(size):
     queenLocations = set()
     counter = 0
-    counter = recursiveQueenPlacer(queenLocations, 0, counter)
+    counter = recursiveQueenPlacer(queenLocations, 0, counter, size)
     print(counter)
 
 def queenChecker(queen, queenLocations):
@@ -15,18 +15,18 @@ def queenChecker(queen, queenLocations):
             return False
     return True
 
-def recursiveQueenPlacer(queenLocations, y, counter):
-    for i in range(8):
+def recursiveQueenPlacer(queenLocations, y, counter, size):
+    for i in range(size):
         queen = Queens(i, y)
         if queenChecker(queen, queenLocations) == False:
             continue
-        if y == 7:
+        if y == (size - 1):
             counter += 1
             continue
         queenLocations.add(queen)
-        counter = recursiveQueenPlacer(queenLocations, y + 1, counter)
+        counter = recursiveQueenPlacer(queenLocations, y + 1, counter, size)
         queenLocations.discard(queen)
 
     return counter
 
-eightQueens()
+eightQueens(8)
