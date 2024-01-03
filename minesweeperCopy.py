@@ -161,19 +161,19 @@ class Board:
         print("\n    ", end="")
         for i in range(size):
             print(" " + str(i).ljust(3, " "), end="")
-        print("")
+        print("\n")
 
     def success(self):
-        print("Winner")
+        print("\nWinner")
         self.gameFinished = True
 
     def failure(self):
-        print("BANG")
+        print("\nBANG")
         self.gameFinished = True
 
 def setDifficulty():
 
-    print("Choose your difficulty!\n\nEasy    Medium     Hard")
+    print("Choose your difficulty!\n\nEasy    Medium     Hard\n")
     difficulty = DifficultyEnum.NONE
 
     while(difficulty == DifficultyEnum.NONE):
@@ -234,7 +234,7 @@ def main():
         if board.numberOfTilesClicked == ((board.difficulty.size ** 2) - board.difficulty.numberOfMines):
             board.success()
 
-    print("Thank you for playing")
+    print("\nThank you for playing!\n")
     exit(0)
 
 main()
